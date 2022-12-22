@@ -16,8 +16,9 @@ function Login(props) {
 
   return (
     <section className="login">
+      <Link to="/" className="login__logo" ></Link>
       <h2 className="login__title">Рады видеть!</h2>
-      <form className="login__form" name="login-form" action="#" noValidate>
+      <form className="login__form" name="login-form" action="#">
         <Input
           name="email"
           type="email"

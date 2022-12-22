@@ -19,8 +19,9 @@ function Register(props) {
 
   return (
     <section className="register">
+      <Link to="/" className="register__logo" ></Link>
       <h2 className="register__title">Добро пожаловать!</h2>
-      <form className="register__form" name="register-form" action="#" noValidate>
+      <form className="register__form" name="register-form" action="#" >
         <Input
           name="name"
           type="text"

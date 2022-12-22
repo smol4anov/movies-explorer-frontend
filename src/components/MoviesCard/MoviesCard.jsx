@@ -7,11 +7,11 @@ function MoviesCard(props) {
 
   return (
     <div className="movies-card">
-      <img src={movie.image} alt={movie.nameRU} className="movie__image" />
-      <div className="movie__content">
-        <div className="movie__content-title">
-          <h3 className="movie__title">{movie.nameRU}</h3>
-          <button type="button" className={cn('movie__save-button', { 'movie__save-button_delete': pageName === "SavedMovies" })} ></button>
+      <img src={movie.image} alt={movie.nameRU} className="movies-card__image" />
+      <div className="movies-card__content">
+        <div className="movies-card__content-title">
+          <h3 className="movies-card__title">{movie.nameRU}</h3>
+          <button type="button" className={cn('movies-card__save-button', { 'movies-card__save-button_delete': pageName === "SavedMovies" })} ></button>
         </div>
         <p className="movies-card__duration">{movie.duration}</p>
       </div>

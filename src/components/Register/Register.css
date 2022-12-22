@@ -1,6 +1,14 @@
 .register {
   margin: 0 auto;
-  padding-top: 148px;
+  padding-top: 70px;
+}
+
+.register__logo {
+  margin: 0 0 37px;
+  background: no-repeat center/100% url(../../images/logo.svg);
+  display: inline-block;
+  min-width: 38px;
+  min-height: 38px;
 }
 
 .register__title {
@@ -12,26 +20,15 @@
   position: relative;
 }
 
-.register__title::before {
-  content: '';
-  width: 38px;
-  height: 38px;
-  position: absolute;
-  top: -78px;
-  background: no-repeat center/100% url(../../images/logo.svg);
-}
-
 .register__form {
   display: flex;
   flex-direction: column;
   width: 396px;
-  height: calc(100vh - 320px);
-  min-height: 326px;
   margin: 0 0 16px;
 }
 
 .register__button {
-  margin-top: auto;
+  margin: 71px 0 0;
   border: none;
   background-color: #3456f3;
   border-radius: 3px;
@@ -72,40 +69,32 @@
 
 @media screen and (max-width: 1023px) {
   .register {
-    padding-top: 310px;
-  }
-
-  .register__form {
-    height: calc(100vh - 644px);
+    padding-top: 232px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .register {
-    padding-top: 144px;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-top: 56px;
+    width: 81.25%;
+  }
+
+  .register__logo {
+    margin: 0 calc(50% - 19px) 47px;
   }
 
   .register__title {
     margin: 0 0 80px;
-  }
-
-  .register__title::before {
-    top: -88px;
-    left: calc(50% - 19px);
+    text-align: center;
   }
 
   .register__form {
-    width: 81.25%;
-    height: calc(100vh - 312px);
+    width: 100%;
     margin: 0 0 14px;
   }
 
   .register__button {
+    margin: 159px 0 0;
     font-size: 12px;
     line-height: 15px;
     padding: 15px 0;

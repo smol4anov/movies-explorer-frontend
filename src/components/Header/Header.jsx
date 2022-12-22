@@ -5,9 +5,9 @@ import cn from 'classnames';
 const Header = (props) => {
   const { pageName, onClick } = props;
   return (
-    <header className={cn('header', { 'header__main-page': pageName === "Main" })}>
+    <header className={cn('header', { 'header_main-page': pageName === "Main" })}>
       <div className="header__wrapper">
-        <Link to="#" className="header__logo" ></Link>
+        <Link to="/" className="header__logo" ></Link>
         {pageName === "Main" ? <>
           <div className="header__main-button">
             <Link to="/signup" className="header__signup" >Регистрация</Link>

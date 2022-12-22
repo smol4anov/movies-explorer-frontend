@@ -16,7 +16,7 @@ function AboutProject() {
       </ul>
       <ul className="project__infografic">
         <li className="project__infografic-backend">
-          <p className="project__infografic-time project__infografic-time__backend">1 неделя</p>
+          <p className="project__infografic-time project__infografic-time_backend">1 неделя</p>
           <p className="project__infografic-subtitle">Back-end</p>
         </li>
         <li className="project__infografic-frontend">
