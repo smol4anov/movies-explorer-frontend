@@ -1,0 +1,14 @@
+.App {
+  font-family: Inter, Arial, sans-serif;
+  background-color: #fafafa;
+  color: #000;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 74px 1fr auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}

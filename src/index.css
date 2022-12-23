@@ -1,0 +1,4 @@
+/* Обнуляющий стиль */
+@import url(./vendor/normalize.css);
+/* Шрифты */
+@import url(./vendor/fonts.css);
