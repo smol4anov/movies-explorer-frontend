@@ -6,7 +6,7 @@ export const spaUrl = 'https://github.com/smol4anov/react-mesto-api-full';
 export const beatfilmUrl = 'https://api.nomoreparties.co/beatfilm-movies';
 export const imageServer = 'https://api.nomoreparties.co';
 
-export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'https://api.movies.servis.nomoredomains.club';
 
 export const nameValidationRegExp = /^[a-zA-Zа-яА-Я -]+$/;
 export const nameValidationMessage = 'Используются недопустимые символы';
