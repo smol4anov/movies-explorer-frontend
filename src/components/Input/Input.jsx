@@ -2,7 +2,7 @@ import './Input.css';
 
 function Input(props) {
 
-  const { type, name, label, minlength, value, validationMessage, onChange } = props;
+  const { type, name, label, minlength, value, validationMessage, disabled, onChange } = props;
 
   return (
     <label htmlFor={name} className="label">
@@ -16,6 +16,7 @@ function Input(props) {
         required
         value={value}
         onChange={onChange}
+        disabled={disabled}
       />
       <span className="error-message">{validationMessage}</span>
     </label>

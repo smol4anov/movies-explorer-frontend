@@ -58,6 +58,7 @@
 .header__link {
   text-decoration: none;
   color: #000;
+  font-weight: 500;
   font-size: 13px;
   line-height: 18px;
   transition: opacity .3s linear;
@@ -71,8 +72,8 @@
   margin-right: 16px;
 }
 
-.header__link_active {
-  font-weight: 500;
+.header__link_saved {
+  font-weight: 400;
 }
 
 .header__acсount-links {
