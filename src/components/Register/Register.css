@@ -27,8 +27,18 @@
   margin: 0 0 16px;
 }
 
+.register__submit-message {
+  margin: 0;
+  height: 71px;
+  padding: 11px 0 0;
+  box-sizing: border-box;
+  color: #EE3465;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .register__button {
-  margin: 71px 0 0;
+  margin: 0;
   border: none;
   background-color: #3456f3;
   border-radius: 3px;
@@ -43,6 +53,15 @@
 .register__button:hover {
   cursor: pointer;
   opacity: .8;
+}
+
+.register__button_non-active {
+  background-color: #a0a0a0;
+  opacity: .8;
+}
+
+.register__button_non-active:hover {
+  cursor: auto;
 }
 
 .register__footer {
@@ -93,8 +112,11 @@
     margin: 0 0 14px;
   }
 
+  .register__submit-message {
+    height: 159px;
+  }
+
   .register__button {
-    margin: 159px 0 0;
     font-size: 12px;
     line-height: 15px;
     padding: 15px 0;

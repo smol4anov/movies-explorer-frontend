@@ -1,54 +1,65 @@
 import './Register.css';
+import { useEffect } from "react";
 import Input from '../Input/Input';
-import { useForm } from "../../hooks/useForm";
-
+import { useFormWithValidation } from "../../hooks/useFormHook";
 import { Link } from "react-router-dom";
-
-
-const initFields = {
-  password: '',
-  email: '',
-  name: '',
-};
+import cn from 'classnames';
 
 function Register(props) {
 
-  const { values, validationMessages, handleChange } = useForm(initFields, initFields);
+  const { onRegister, onUnmount, disableForm, submitMessage, clearSubmitMessage } = props;
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
-  const allInputIsValid = !validationMessages.password && !validationMessages.email && !validationMessages.name;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onRegister(values);
+  };
+
+  const handleEmailChange = (e) => {
+    handleChange(e);
+    clearSubmitMessage();
+  };
+
+  useEffect(() => {
+    return onUnmount;
+  }, []);
 
   return (
     <section className="register">
       <Link to="/" className="register__logo" ></Link>
       <h2 className="register__title">Добро пожаловать!</h2>
-      <form className="register__form" name="register-form" action="#" >
+      <form className="register__form" name="register-form" action="#" onSubmit={handleSubmit}>
         <Input
           name="name"
           type="text"
           label="Имя"
           minlength={2}
-          value={values.name}
-          validationMessage={validationMessages.name}
+          value={values.name || ''}
+          validationMessage={errors.name}
           onChange={handleChange}
+          disabled={disableForm}
         />
         <Input
           name="email"
           type="email"
           label="E-mail"
-          value={values.email}
-          validationMessage={validationMessages.email}
-          onChange={handleChange}
+          value={values.email || ''}
+          validationMessage={errors.email}
+          onChange={handleEmailChange}
+          disabled={disableForm}
         />
         <Input
           name="password"
           type="password"
           label="Пароль"
           minlength={6}
-          value={values.password}
-          validationMessage={validationMessages.password}
+          value={values.password || ''}
+          validationMessage={errors.password}
           onChange={handleChange}
+          disabled={disableForm}
         />
-        <button className="register__button" type="submit" disabled={!allInputIsValid}>Зарегистрироваться</button>
+        <p className="register__submit-message">{submitMessage}</p>
+        <button className={cn('register__button', { 'register__button_non-active': !isValid })} type="submit" disabled={!isValid || disableForm} >Зарегистрироваться</button>
       </form>
       <div className="register__footer">
         <p className="register__footer-text">Уже зарегистрированы?</p>

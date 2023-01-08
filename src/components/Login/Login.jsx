@@ -1,42 +1,54 @@
 import './Login.css';
+import { useEffect } from "react";
 import Input from '../Input/Input';
-import { useForm } from "../../hooks/useForm";
+import { useFormWithValidation } from "../../hooks/useFormHook";
 import { Link } from "react-router-dom";
-
-const initFields = {
-  password: '',
-  email: '',
-};
+import cn from 'classnames';
 
 function Login(props) {
 
-  const { values, validationMessages, handleChange } = useForm(initFields, initFields);
+  const { onLogin, onUnmount, disableForm, submitMessage, clearSubmitMessage } = props;
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
-  const allInputIsValid = !validationMessages.password && !validationMessages.email;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin(values);
+  };
+
+  const handleFieldChange = (e) => {
+    handleChange(e);
+    clearSubmitMessage();
+  };
+
+  useEffect(() => {
+    return onUnmount;
+  }, []);
 
   return (
     <section className="login">
       <Link to="/" className="login__logo" ></Link>
       <h2 className="login__title">Рады видеть!</h2>
-      <form className="login__form" name="login-form" action="#">
+      <form className="login__form" name="login-form" action="#" onSubmit={handleSubmit}>
         <Input
           name="email"
           type="email"
           label="E-mail"
-          value={values.email}
-          validationMessage={validationMessages.email}
-          onChange={handleChange}
+          value={values.email || ''}
+          validationMessage={errors.email}
+          onChange={handleFieldChange}
+          disabled={disableForm}
         />
         <Input
           name="password"
           type="password"
           label="Пароль"
-          minlength={6}
-          value={values.password}
-          validationMessage={validationMessages.password}
-          onChange={handleChange}
+          value={values.password || ''}
+          validationMessage={errors.password}
+          onChange={handleFieldChange}
+          disabled={disableForm}
         />
-        <button className="login__button" type="submit" disabled={!allInputIsValid}>Войти</button>
+        <p className="login__submit-message">{submitMessage}</p>
+        <button className={cn('login__button', { 'login__button_non-active': !isValid })} type="submit" disabled={!isValid || disableForm} >Войти</button>
       </form>
       <div className="login__footer">
         <p className="login__footer-text">Ещё не зарегистрированы?</p>

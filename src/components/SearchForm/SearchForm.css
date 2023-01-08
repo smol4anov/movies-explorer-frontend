@@ -30,6 +30,24 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  position: relative;
+}
+
+.search-form__error-message {
+  display: none;
+  position: absolute;
+  background-color: #3456f3;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  line-height: 18px;
+  top: 40px;
+  left: 60px;
+  border-radius: 0 15px 15px;
+}
+
+.search-form__error-message_active {
+  display: block;
 }
 
 .search-form__text-label {
@@ -193,6 +211,13 @@
     border-radius: 9px;
     border: none;
     height: 72px;
+  }
+
+  .search-form__error-message {
+    padding: 5px 10px;
+    font-size: 11px;
+    top: 55px;
+    left: 30px;
   }
 
   .search-form__button {
